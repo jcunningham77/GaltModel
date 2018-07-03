@@ -13,6 +13,8 @@ console.log("ip: " + ip);
 
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/assets/',express.static(__dirname+'/public'));
+var fileUploadController = require('./server/fileUploadController');
+fileUploadController(app);
 
  
 
