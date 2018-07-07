@@ -1,5 +1,7 @@
 var express = require('express');
 var path = require('path');
+var mongoose = require('mongoose');
+var config = require('./config');
  
 var app =express();
 
@@ -10,7 +12,7 @@ var ip = '0.0.0.0';
 console.log("port: " + port);
 console.log("ip: " + ip); 
 
-
+mongoose.connect(config.getDBConnectionString());
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/assets/',express.static(__dirname+'/public'));
 var fileUploadController = require('./server/fileUploadController');
