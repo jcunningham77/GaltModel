@@ -8,6 +8,11 @@
 		    templateUrl: 'templates/fileUpload.html',
 		    controller: 'fileUploadController'
 		    	    
+			})
+			.when('/Players', {
+		    templateUrl: 'templates/players.html',
+		    controller: 'playersController'
+		    	    
 		  })
 		  .otherwise({ redirectTo: '/' });	
 		})

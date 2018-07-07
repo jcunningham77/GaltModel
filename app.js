@@ -15,8 +15,10 @@ console.log("ip: " + ip);
 mongoose.connect(config.getDBConnectionString());
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/assets/',express.static(__dirname+'/public'));
-var fileUploadController = require('./server/fileUploadController');
+var fileUploadController = require('./server/fileUploadAPI');
+var playersController = require('./server/playersAPI');
 fileUploadController(app);
+playersController(app);
 
  
 

@@ -1,0 +1,25 @@
+<div flex-gt-sm="100" flex>
+        <md-content class="md-loginTransparent">
+          <md-list flex>
+            <div align="center">
+              <h1 class="md-display-1 md-loginTransparent">Players</h1>
+            </div>
+    
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <br>
+            <br>
+            <md-list-item class="md-3-line md-loginTransparent" ng-repeat="player in players ">
+      
+              <div class="md-list-item-text" layout="column">
+      
+                <h5 class="md-title">{{ player.Name }}, {{player.WAR}}</h5>
+                
+              </div>
+      
+            </md-list-item>
+      
+          </md-list>
+        </md-content>
+      
+      </div>
