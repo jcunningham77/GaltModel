@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	angular.module('galtModel',['ngRoute', 'ngCookies',  'ngMaterial'])
+	angular.module('galtModel',['ngRoute', 'ngCookies',  'ngMaterial', 'rx'])
 	.config(function($routeProvider){
 		$routeProvider
 
