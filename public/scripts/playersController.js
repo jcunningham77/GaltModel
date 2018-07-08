@@ -1,18 +1,32 @@
 'use strict';
 angular.module("galtModel")
-.controller('playersController', function ($scope, $http) {
+.controller('playersController', function ($scope, $http, rx, $timeout) {
 
-  $scope.name = "Players Controller";
+    $scope.name = "Players Controller";
+    $scope.isLoading = true;
+    $scope.players = [];
+    $scope.errorMessage = '';
 
-  $http.get('/api/players/')
-    .then(function (res) {
-        console.log("in success callback after API call");
-        $scope.players = res.data;
-        // console.log($scope.savedPicks);
-    }, function (err) {
-        console.log("in error callback after API call");
-        $scope.error_message = err;
-        console.log(err);
-  });
-  
+    var playersPromiseObservable = Rx.Observable
+        .fromPromise($http({
+            url: "/api/players/",
+            method: "GET"
+        }))
+        .safeApply($scope);
+
+    playersPromiseObservable.subscribe(response=>{                 
+                    $scope.isLoading = false;
+                    $scope.players = response.data;
+
+                },
+                err=>{
+                    $scope.errorMessage = 'oopps';
+                    console.log('rx observable error');
+                    console.log(err);
+                },
+                ()=>{
+                    console.log('rx observable completed');
+                    
+                }
+        );
 });
