@@ -23,40 +23,31 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-cookies.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-aria.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-messages.min.js"></script>
-     <script src="//unpkg.com/rx/dist/rx.all.js"></script>
-     <script src="//unpkg.com/rx-angular/dist/rx.angular.js"></script>
+    <script src="//unpkg.com/rx/dist/rx.all.js"></script>
+    <script src="//unpkg.com/rx-angular/dist/rx.angular.js"></script>
 
-    
-    
-    
-    
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.7/angular-material.min.js"></script>
 
     <script type="text/javascript" src="scripts/app.js"></script>
     <script type="text/javascript" src="scripts/fileUploadController.js"></script>
     <script type="text/javascript" src="scripts/playersController.js"></script>
-
-
-    
-   
-
+    <script type="text/javascript" src="scripts/navBarController.js"></script>
 </head>
 
 
 <body ng-app="galtModel" class="backgroundImage">
 
     <h3 align=center>Who is John Galt?</h3>
-
-
-
-
-
-
-
-        <ng-view></ng-view>
-
-
-   
+    <div ng-controller="navBarController" ng-cloak>
+        <md-content class="md-padding md-loginTransparent">
+            <md-nav-bar md-no-ink-bar="disableInkBar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+                <md-nav-item md-nav-href="#!/FileUpload" name="/FileUpload">Upload</md-nav-item>
+                <md-nav-item md-nav-href="#!/Players" name="/Players">Players</md-nav-item>
+            </md-nav-bar>
+        </md-content>
+    </div>
+        
+    <ng-view></ng-view>
 
 </body>
 

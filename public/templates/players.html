@@ -18,7 +18,8 @@
       
               <div class="md-list-item-text" layout="column">
       
-                <h5 class="md-title">{{ player.Name }}, WAR: {{player.WAR}}</h5>
+                <h3 class="md-title">{{ player.Name }}</h3>
+                <h4>WAR: {{player.WAR}}, AVG: {{(player.AVG|number: 3).slice(1)}}, OPS: {{player.OPS>1?(player.OPS|number: 3):(player.OPS|number: 3).slice(1)}}</h4>
                 
               </div>
       
